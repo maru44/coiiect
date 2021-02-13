@@ -1,0 +1,44 @@
+{% extends "collect/base.html" %}
+{% load i18n %}
+{% block title %}
+{% trans "Login" %}
+{% endblock %}
+{% block content %}
+<div class="per60">
+  <div class="pl11">
+    <form method="POST">
+      {% csrf_token %}
+      <h3>Login</h3>
+        {{ form.non_field_errors }}
+        <div class="field">
+          <label for="id_username">{% trans "Email or Username" %}:</label><br>
+          {{ form.username }}
+          {% if form.username.errors %}
+            {{ form.username.error }}
+          {% endif %}
+        </div>
+        <div class="field">
+          {{ form.password.label_tag }}<br>
+          {{ form.password }}
+          {% if form.password.errors %}
+            {{ form.password.error }}
+          {% endif %}
+        </div>
+        <input type="hidden" name="next" value="{{ request.GET.next }}">
+      <div class="mt20">
+        <a class="a_under" href="{% url 'user:reset' %}">{% trans "If you forget password." %}</a>
+      </div>
+      <div class="mt10">
+        <button class="submitFull pt10 pb10 w100" type="submit">{% trans "Login" %}</button>
+      </div>
+    </form>
+    <h4 class="mt20" style="text-align: center;">---- {% trans "Registration" %} ----</h4>
+    <div class="mt10 w100">
+      <button class="submitFull pt10 pb10 w100 hrefBox">
+        {% trans "Sign up" %}
+        <a class="hrefBoxIn"  href="{% url 'user:register' %}"></a>
+      </button>
+    </div>
+  </div>
+</div>
+{% endblock content %}

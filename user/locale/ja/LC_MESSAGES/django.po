@@ -1,0 +1,525 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-24 17:11+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: user/models.py:44
+msgid "email"
+msgstr "メールアドレス"
+
+#: user/models.py:45
+msgid "username"
+msgstr "ユーザー名"
+
+#: user/models.py:46
+msgid "name"
+msgstr "名前"
+
+#: user/models.py:47
+msgid "picture"
+msgstr "写真"
+
+#: user/models.py:48
+msgid "introduction"
+msgstr "自己紹介"
+
+#: user/models.py:51
+msgid "staff status"
+msgstr ""
+
+#: user/models.py:54
+msgid "Designates whether the user can log into this admin site."
+msgstr ""
+
+#: user/models.py:57
+msgid "active"
+msgstr ""
+
+#: user/models.py:60
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+
+#: user/models.py:64
+msgid "launch"
+msgstr ""
+
+#: user/models.py:76
+msgid "user"
+msgstr ""
+
+#: user/models.py:77
+msgid "users"
+msgstr ""
+
+#: user/templates/user/login.html:4 user/templates/user/login.html:32
+#: user/templates/user/password_change_done.html:7
+#: user/templates/user/password_reset_complete.html:10
+#: user/templates/user/register.html:107 user/templates/user/register.html:110
+msgid "Login"
+msgstr "ログイン"
+
+#: user/templates/user/login.html:29
+msgid "If you forget password."
+msgstr "パスワードを忘れたら"
+
+#: user/templates/user/login.html:35 user/templates/user/register.html:3
+#: user/templates/user/user_create_complete.html:3
+#: user/templates/user/user_create_done.html:3
+msgid "Registration"
+msgstr "会員登録"
+
+#: user/templates/user/login.html:38 user/templates/user/register.html:6
+msgid "Sign up"
+msgstr "会員登録"
+
+#: user/templates/user/mail_template/create/message.txt:2
+#: user/templates/user/mail_template/password_reset/message.txt:2
+msgid "."
+msgstr "様"
+
+#: user/templates/user/mail_template/create/message.txt:4
+msgid "Thank you for your registration."
+msgstr "ご登録ありがとうございます。"
+
+#: user/templates/user/mail_template/create/message.txt:5
+msgid "Press following url and finish your registration."
+msgstr "以下のurlをクリックして、登録を完了してください。"
+
+#: user/templates/user/mail_template/create/message.txt:10
+#: user/templates/user/mail_template/password_reset/message.txt:9
+msgid "official"
+msgstr "公式"
+
+#: user/templates/user/mail_template/create/subject.txt:1
+#: user/templates/user/register.html:104
+msgid "Register"
+msgstr "登録"
+
+#: user/templates/user/mail_template/password_reset/message.txt:4
+msgid "Please access the site from the URL below and reset your password."
+msgstr "以下のurlをクリックすることで、パスワードがリセットされます。"
+
+#: user/templates/user/mail_template/password_reset/subject.txt:1
+msgid "Reset password"
+msgstr "パスワードリセット"
+
+#: user/templates/user/password_change.html:3
+#: user/templates/user/password_change_done.html:3
+msgid "Password Change"
+msgstr "パスワード変更"
+
+#: user/templates/user/password_change.html:15
+#: user/templates/user/password_reset.html:11
+msgid "Submit"
+msgstr "送信"
+
+#: user/templates/user/password_change_done.html:6
+msgid "Changing password has done."
+msgstr "パスワード変更が完了しました。"
+
+#: user/templates/user/password_reset.html:3
+#: user/templates/user/password_reset.html:8
+#: user/templates/user/password_reset_complete.html:3
+#: user/templates/user/password_reset_confirm.html:3
+#: user/templates/user/password_reset_done.html:3
+msgid "Password reset"
+msgstr "パスワードリセット"
+
+#: user/templates/user/password_reset_complete.html:7
+msgid "You have completed password reset."
+msgstr "パスワードリセットが完了しました。"
+
+#: user/templates/user/password_reset_confirm.html:17
+#: user/templates/user/profile.html:25
+msgid "Change"
+msgstr "変更"
+
+#: user/templates/user/password_reset_done.html:7
+msgid "We send mail for password reset."
+msgstr "パスワードリセットのためのメールを送信しました。"
+
+#: user/templates/user/password_reset_done.html:8
+msgid "Reset your password from the url written in the mail."
+msgstr "メールに記載されたurlからパスワードリセットをしてください。"
+
+#: user/templates/user/profile.html:4
+msgid "Profile"
+msgstr "プロフィール"
+
+#: user/templates/user/profile.html:8
+msgid "Change profile"
+msgstr "プロフィール変更"
+
+#: user/templates/user/profile.html:31 user/templates/user/profile.html:34
+#: user/templates/user/profile.html:39 user/templates/user/profile.html:43
+msgid "Logout"
+msgstr "ログアウト"
+
+#: user/templates/user/profile.html:42 user/templates/user/user_delete.html:19
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: user/templates/user/profile.html:48 user/templates/user/profile.html:50
+#: user/templates/user/user_delete.html:11
+msgid "Withdrawal"
+msgstr "退会"
+
+#: user/templates/user/register.html:47
+msgid "I accept and agree to the "
+msgstr "私は利用規約に同意します。"
+
+#: user/templates/user/register.html:47
+msgid "Terms of Use."
+msgstr "利用規約"
+
+#: user/templates/user/register.html:52
+msgid "Terms of Use"
+msgstr "利用規約"
+
+#: user/templates/user/register.html:56
+msgid "User Registration"
+msgstr "ユーザー登録"
+
+#: user/templates/user/register.html:57
+msgid ""
+"You agree to keep your password confidential and will be responsible for all "
+"use of your account and password. We reserve the right to remove, reclaim, "
+"or change a username you select if we determine, in our sole discretion, "
+"that such username and name is inappropriate, obscene, or otherwise "
+"objectionable."
+msgstr ""
+"パスワードを秘密にしておくことに同意し、アカウントとパスワードのすべての使用"
+"に対して責任を負うものとします。 ユーザー名と名前が不適切、わいせつ、または不"
+"快であると独自の裁量で判断した場合、ユーザー名を削除、再利用、または変更する"
+"権利を留保します。"
+
+#: user/templates/user/register.html:58
+msgid "Changing Terms of Use"
+msgstr "利用規約の変更"
+
+#: user/templates/user/register.html:59
+msgid ""
+"If deemed necessary, we may change this agreement at any time without "
+"notifying the user. If you start using this service after changing these "
+"Terms, it is assumed that the user has agreed to the changed Terms."
+msgstr ""
+"必要と判断した場合、ユーザーに通知することなく、いつでもこの規約を変更するこ"
+"とができます。 これらの規約を変更した後に本サービスの利用を開始した場合、ユー"
+"ザーは変更後の規約に同意したものとみなされます。"
+
+#: user/templates/user/register.html:60
+msgid "Prohibited Activities"
+msgstr "禁止事項"
+
+#: user/templates/user/register.html:61
+msgid "As a user of the Site, you agree not to"
+msgstr "本サイトのユーザーは、以下に同意しないものとします。"
+
+#: user/templates/user/register.html:63
+msgid ""
+"Systematically retrieve data or other content from the Site to create or "
+"compile, directly or indirectly, a collection, compilation, database, or "
+"directory without written permission from us."
+msgstr ""
+"サイトからデータまたはその他のコンテンツを体系的に取得し、当サービスからの書"
+"面による許可なしに、コレクション、コンパイル、データベース、またはディレクト"
+"リを直接または間接的に作成またはコンパイルする。"
+
+#: user/templates/user/register.html:64
+msgid ""
+"Make any unauthorized use of the Site, including collecting usernames and/or "
+"email addresses of users by electronic or other means for the purpose of "
+"Sending unsolicited email, or creating user accounts by automated means or "
+"under false pretenses."
+msgstr ""
+"未承諾の電子メールを送信する目的で電子的またはその他の手段でユーザーのユー"
+"ザー名や電子メールアドレスを収集したり、自動化された手段または偽装してユー"
+"ザーアカウントを作成したりするなど、サイトを不正に使用する。"
+
+#: user/templates/user/register.html:65
+msgid "Use a buying agent or purchasing agent to make purchases on the Site."
+msgstr "購入エージェントまたは購入エージェントを使用して、サイトで購入を行う。"
+
+#: user/templates/user/register.html:66
+msgid ""
+"Circumvent, disable, or otherwise interfere with security-related features "
+"of the Site, including features that prevent or restrict the use or copying "
+"of any Content or enforce limitations on the use of the Site and/or the "
+"Content contained therein."
+msgstr ""
+"コンテンツの使用またはコピーを防止または制限したり、サイトおよび/またはサイト"
+"に含まれるコンテンツの使用を制限する機能を含む、サイトのセキュリティ関連機能"
+"を回避、無効化、またはその他の方法で妨害すること。"
+
+#: user/templates/user/register.html:67
+msgid "Engage in unauthorized framing of or linking to the Site."
+msgstr "サイトの不正なフレーミングまたはサイトへのリンクに従事する。"
+
+#: user/templates/user/register.html:68
+msgid ""
+"Trick, defraud, or mislead us and other users, especially in any attempt to "
+"learn sensitive account information such as user passwords"
+msgstr ""
+"特にユーザーのパスワードなどの重要なアカウント情報を入手しようとする試みにお"
+"いて、私たちや他のユーザーをだます、詐欺、または誤解させる。"
+
+#: user/templates/user/register.html:69
+msgid ""
+"Make improper use of our support services or submit false reports of abuse "
+"or misconduct."
+msgstr ""
+"当サービスのサポートサービスを不適切に使用したり、乱用または不正行為の虚偽の"
+"報告を提出したりする。"
+
+#: user/templates/user/register.html:70
+msgid ""
+"Engage in any automated use of the system, such as using scripts to send "
+"comments or messages, or using any data mining, robots, or similar data "
+"gathering and extraction tools."
+msgstr ""
+"スクリプトを使用してコメントやメッセージを送信したり、データマイニング、ロ"
+"ボット、または同様のデータ収集および抽出ツールを使用したりするなど、システム"
+"の自動使用に従事する。"
+
+#: user/templates/user/register.html:71
+msgid ""
+"Interfere with, disrupt, or create an undue burden on the Site or the "
+"networks or services connected to the Site."
+msgstr ""
+"サイト、またはサイトに接続されているネットワークまたはサービスに干渉し、混乱"
+"させ、または過度の負担をかけること。"
+
+#: user/templates/user/register.html:72
+msgid ""
+"Attempt to impersonate another user or person or use the username of another "
+"user."
+msgstr ""
+"別のユーザーまたはユーザーになりすまそうとしたり、別のユーザーのユーザー名を"
+"使用したりすること。"
+
+#: user/templates/user/register.html:73
+msgid "Sell or otherwise transfer your profile."
+msgstr "ユーザーを販売または譲渡する。"
+
+#: user/templates/user/register.html:74
+msgid ""
+"Use any information obtained from the Site in order to harass, abuse, or "
+"harm another person."
+msgstr ""
+"他の人に嫌がらせ、虐待、または危害を加えるために、サイトから取得した情報を使"
+"用する。"
+
+#: user/templates/user/register.html:75
+msgid ""
+"Use the Site as part of any effort to compete with us or otherwise use the "
+"Site and/or the Content for any revenue-generating endeavor or commercial "
+"enterprise."
+msgstr ""
+"当サービスと競争するためのあらゆる努力の一環としてサイトを使用する、または収"
+"益を生み出すあらゆる努力または営利事業のためにサイトおよび/またはコンテンツを"
+"使用する。"
+
+#: user/templates/user/register.html:76
+msgid ""
+"Decipher, decompile, disassemble, or reverse engineer any of the software "
+"comprising or in any way making up a part of the Site."
+msgstr ""
+"サイトを構成する、またはサイトの一部を構成するソフトウェアを解読、逆コンパイ"
+"ル、逆アセンブル、またはリバースエンジニアリングすること。"
+
+#: user/templates/user/register.html:77
+msgid ""
+"Attempt to bypass any measures of the Site designed to prevent or restrict "
+"access to the Site, or any portion of the Site."
+msgstr ""
+"サイトまたはサイトの一部へのアクセスを防止または制限するために設計されたサイ"
+"トの対策を迂回する試み。"
+
+#: user/templates/user/register.html:78
+msgid ""
+"Harass, annoy, intimidate, or threaten any of our employees or agents "
+"engaged in providing any portion of the Site to you."
+msgstr ""
+"サイトの一部をあなたに提供することに従事している当サービスの従事者に嫌がら"
+"せ、迷惑、脅迫、または脅迫すること。"
+
+#: user/templates/user/register.html:79
+msgid ""
+"Copy or adapt the Site’s software, including but not limited to Python, "
+"HTML, JavaScript, or other code."
+msgstr ""
+"サイトのソフトウェアをコピーまたは改変すること。これには、Python、HTML、"
+"JavaScript、またはその他のコードが含まれますが、これらに限定されません。"
+
+#: user/templates/user/register.html:80
+msgid ""
+"Upload or transmit (or attempt to upload or to transmit) viruses, Trojan "
+"horses, or other material, including excessive use of capital letters and "
+"Spamming (continuous posting of repetitive text), that interferes with any "
+"party’s uninterrupted use and enjoyment of the Site or modifies, impairs, "
+"disrupts, alters, or interferes with the use, features, functions, "
+"operation, or maintenance of the Site."
+msgstr ""
+"ウイルス、トロイの木馬、または他のコンテンツのアップロードまたは送信（または"
+"アップロードまたは送信の試み）、大文字の過剰な使用およびスパム行為（繰り返し"
+"テキストの継続的な投稿）を含み、当事者のサイトの中断のない使用および楽しむこ"
+"とを妨げる、またはサイトの使用、特徴、機能、操作、またはメンテナンスを変更、"
+"障害、混乱、変更、または妨害すること。"
+
+#: user/templates/user/register.html:81
+msgid ""
+"Except as may be the result of standard search engine or Internet browser "
+"usage, use, launch, develop, or distribute any automated system, including "
+"without limitation, any spider, robot, cheat utility, scraper, or offline "
+"reader that accesses the Site, or using or launching any unauthorized script "
+"or other software."
+msgstr ""
+"標準の検索エンジンまたはインターネットブラウザーの使用、使用、起動、開発、ま"
+"たは配布の結果である場合を除き、サイトにアクセスするスパイダー、ロボット、"
+"チートユーティリティ、スクレーパー、オフラインリーダーなどの自動システム、ま"
+"たは無許可のスクリプトやその他のソフトウェアを使用または起動する。"
+
+#: user/templates/user/register.html:82
+msgid ""
+"Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site."
+msgstr "私たちおよびサイトの過度の非難、妨害、またはその他の傷害。"
+
+#: user/templates/user/register.html:83
+msgid ""
+"Use the Site in a manner inconsistent with any applicable laws or "
+"regulations."
+msgstr "該当する法律または規制に反する方法でサイトを使用する。"
+
+#: user/templates/user/register.html:85
+msgid "Guidelines for posting"
+msgstr "投稿ガイドライン"
+
+#: user/templates/user/register.html:86
+msgid ""
+"If a user violate any of these Terms, we can delete the posted data, "
+"restrict the use of the service, and delete the user's registration without "
+"prior notice."
+msgstr ""
+"ユーザーが以下の本規約のいずれかに違反した場合、事前の通知なく投稿データの削"
+"除、サービスの利用制限、ユーザーの登録を抹消することが私たちはできます。"
+
+#: user/templates/user/register.html:87
+msgid "The posting rules are as follows."
+msgstr "投稿のルールは以下です。"
+
+#: user/templates/user/register.html:89
+msgid ""
+"Your posts should not contain offensive profanity, or abusive, racist, "
+"offensive, or hate language"
+msgstr ""
+"あなたの投稿は、不快な冒とく、または虐待的、人種差別的、攻撃的、または差別的"
+"な言葉を含むべきではありません。"
+
+#: user/templates/user/register.html:90
+msgid ""
+"Your posts should not contain discriminatory references based on religion, "
+"race, gender, national origin, age, marital status, sexual orientation, or "
+"disability"
+msgstr ""
+"投稿には、宗教、人種、性別、出身国、年齢、婚姻状況、性的指向、または障害に基"
+"づく差別的な言及を含めないでください。"
+
+#: user/templates/user/register.html:91
+msgid "Your posts should not contain references to illegal activity"
+msgstr "あなたの投稿に違法行為への言及が含まれていてはなりません。"
+
+#: user/templates/user/register.html:92
+msgid "You may not post any false or misleading statements"
+msgstr "虚偽または誤解を招く記述を投稿することはできません。"
+
+#: user/templates/user/register.html:93
+msgid ""
+"You may not organize a campaign encouraging others to post, whether positive "
+"or negative."
+msgstr ""
+"肯定的であれ否定的であれ、他の人に投稿の投稿を促すキャンペーンを組織すること"
+"はできません。"
+
+#: user/templates/user/register.html:94
+msgid ""
+"We may accept, reject, or remove posts in our sole discretion. We have "
+"absolutely no obligation to screen posts or to delete posts, even if anyone "
+"considers posts objectionable or inaccurate. Posts are not endorsed by us, "
+"and do not necessarily represent our opinions or the views of any of our "
+"affiliates or partners."
+msgstr ""
+"独自の裁量により、投稿を承認、拒否、または削除する場合があります。投稿が不快"
+"または不正確であると誰かが判断した場合でも、投稿をスクリーニングしたり、投稿"
+"を削除したりする義務は一切ありません。"
+
+#: user/templates/user/register.html:96
+msgid "Privacy policy"
+msgstr "プライバシーポリシー"
+
+#: user/templates/user/register.html:97
+msgid "To reflect in the recommendation, get the action log."
+msgstr "レコメンドに反映するため、行動ログを取得します。"
+
+#: user/templates/user/register.html:98
+msgid ""
+"User information will not be provided to third parties or used maliciously."
+msgstr "ユーザー情報の第三者への提供、および悪用をすることはありません。"
+
+#: user/templates/user/user_create_complete.html:9
+msgid "Complete!!"
+msgstr "完了しました。"
+
+#: user/templates/user/user_create_complete.html:12
+msgid "Home"
+msgstr "ホーム"
+
+#: user/templates/user/user_create_done.html:7
+msgid "You finished temporary registration."
+msgstr "仮登録が完了しました。"
+
+#: user/templates/user/user_create_done.html:8
+msgid "I send a e-mail to reset your password."
+msgstr "パスワードリセット用のメールを送信しました。"
+
+#: user/templates/user/user_create_done.html:9
+msgid ""
+"You have to reset your password from the url written in the e-mail within 24 "
+"hours."
+msgstr "24時間以内にメールに記載のURLからパスワードをリセットしてください。"
+
+#: user/templates/user/user_delete.html:3
+msgid "Withdraw"
+msgstr "退会"
+
+#: user/templates/user/user_delete.html:7
+msgid "Your collection and your user data is completely deleted."
+msgstr "コレクションとユーザーは完全に削除されます。"
+
+#: user/templates/user/user_delete.html:8
+msgid "Are you sure to withdraw?"
+msgstr "本当に退会しますか。"
+
+#: user/templates/user/user_delete.html:16
+msgid "Are you sure?"
+msgstr "本当に退会しますか。"
+
+#: user/templates/user/user_delete.html:20
+msgid "Delete"
+msgstr "退会"

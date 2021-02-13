@@ -1,0 +1,33 @@
+{% extends "collect/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title %}{{ user.name }}{% endblock %}
+
+{% block content %}
+<div class="columnArea">
+  <div class="per60 pl11">
+    <div class="OZI hrefBox">
+      <div class="ownerImageBack"></div>
+      <div class="ownerNameZone">
+          <h4>{{ user.name }}</h4>
+      </div>
+      <a href="{% url 'user:detail' user.username %}" class="hrefBoxIn"></a>
+    </div>
+    <div class="mt10">
+      <h4>Username: {{ user.username }}</h4>
+    </div>
+    <div class="mt5">
+      <p>{{ user.intro }}</p>
+    </div>
+  </div>
+</div>
+<style>
+  .ownerImageBack {
+      background-image: url("{{ user.picture.url }}");
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-position: center;
+  }
+  </style>
+{% endblock %}

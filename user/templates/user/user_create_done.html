@@ -1,0 +1,12 @@
+{% extends "collect/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Registration" %}{% endblock %}
+{% block content %}
+<div class="mt25 per60">
+  <p>
+    {% trans "You finished temporary registration." %}<br>
+    {% trans "I send a e-mail to reset your password." %}<br>
+    {% trans "You have to reset your password from the url written in the e-mail within 24 hours." %}<br>
+  </p>
+</div>
+{% endblock %}

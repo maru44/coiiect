@@ -1,0 +1,100 @@
+{% extends 'collect/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+  <section class="pbBottom">
+    {% include 'collect/search_form.html' %}
+    <div class="columnArea">
+        <h3 class="Midashi">{{ theme }}</h3>
+        {% for collect in collects %}
+          <article class="collectList hrefBox{% for tag in collect.tag.all %} {{ tag.text }}_arti{% endfor %} {{ collect.state }}_arti">
+            <div class="imageFrame">
+              {% if collect.photo_set %}
+                <img src="{{ collect.photo_set.first.photo.url }}">
+              {% endif %}
+            </div>
+            <div class="collectinfo">
+              <div class="ue">
+                <div class="itemName">
+                  <h3>{{ collect.name }}</h3>
+                </div>
+                <div class="itemVisual">
+                    {% if collect.state == "NEGOTIABLE" %}
+                      <a class="circleV"></a>
+                    {% elif collect.state == "THIRSTY" %}
+                      <a class="starV">★</a>
+                    {% elif collect.state == "NON-NEGOTIABLE" %}
+                      <a class="heartV">♥</a>
+                    {% else %}
+                      <a class="squareV"></a>
+                    {% endif %}
+                  <div class="itemPrice">
+                    <a class="priceV">
+                      {% if collect.price %}
+                        {{ collect.price }}
+                      {% endif %}
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="shita">
+                <div class="hosokuA">
+                  <div class="sonotaA">
+                    {% if request.user.is_authenticated %}
+                      {% if collect.niced %}
+                        <i class="far fa-thumbs-up mr15 salmon"></i>
+                      {% else %}
+                        <i class="far fa-thumbs-up mr15"></i>
+                      {% endif %}
+                    {% else %}
+                      <i class="far fa-thumbs-up mr15"></i>
+                    {% endif %}
+                    <span>
+                      {{ collect.nice_count }}
+                    </span>
+                    <i class="far fa-comments mr15 ml20"></i>
+                    <span>
+                      {{ collect.com_count }}
+                    </span>
+                  </div>
+                  <div class="sonotaA">
+                    <span>{{ collect.posted }}</span>
+                  </div>
+                </div>
+                <div class="placeArea">
+                  <a class="placeInfo">
+                    {% if request.user == collect.user %}
+                      {% if collect.place %}
+                        {{ collect.place }}
+                      {% endif %}
+                    {% endif %}
+                  </a>
+                </div>
+              </div>
+            </div>
+            <a class="hrefBoxIn" href="{% url 'detail' collect.id %}"></a>
+          </article>
+        {% endfor %}
+      <div class="shareZone flex-normal sp_bw mt10">
+        <div class="shareWide face hrefBox flex-normal">
+          <div class="faceIcon mt8 fa-lg">
+            <i class="fab fa-facebook-square"></i>
+          </div>
+            <div class="flex1 textCen colorW mta mba normalWeight">
+              share
+            </div>
+            <a class="hrefBoxIn" href="https://www.facebook.com/share.php?u={{ request.scheme }}://{{ request.get_host }}" rel="nofollow" target="_blank"></a>
+          </div>
+          <div class="shareWide twi hrefBox flex-normal">
+            <div class="twiIcon h50px">
+              <i class="fab fa-twitter fa-lg mt12"></i>
+            </div>
+            <div class="flex1 textCen colorW mta mba normalWeight">
+              share
+            </div>
+            <a class="hrefBoxIn" href="https://twitter.com/share?url={{ request.scheme }}://{{ request.get_host }}&text=Manage collection with us." rel="nofollow" target="_blank"></a>
+          </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

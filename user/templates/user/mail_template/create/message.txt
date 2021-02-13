@@ -1,0 +1,10 @@
+{% load i18n %}
+{{ user.name }}{% trans "." %}
+
+{% trans "Thank you for your registration." %}
+{% trans "Press following url and finish your registration." %}
+
+URL:
+{{ protocol}}://{{ domain }}{% url 'user:register_complete' token %}
+
+CoIIect {% trans "official" %}

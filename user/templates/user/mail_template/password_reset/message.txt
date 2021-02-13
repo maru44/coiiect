@@ -1,0 +1,9 @@
+{% load i18n %}
+{{ user.username }}{% trans "." %}
+
+{% trans "Please access the site from the URL below and reset your password." %}
+
+URL:
+{{ protocol}}://{{ domain }}{% url 'user:reset_confirm' uidb64=uid token=token %}
+
+CoIIect {% trans "official" %}

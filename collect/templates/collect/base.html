@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+      <meta charset="utf-8">
+      {% block ogp %}
+        <meta property="og:type" content="website">
+        <meta property="og:description" content='{% trans "Manage collection with us." %}'>
+        {% if user.is_authenticated %}
+          <meta property="og:image" content="https://coiiect.com{{ user.picture.url }}">
+        {% else %}
+          <meta property="og:image" content="https://coiiect.com/{% static 'images/diamond_big.png' %}">
+        {% endif %}
+          <meta property="og:url" content="https://coiiect.com">
+          <meta property="og:title" content="CoIIect">
+      {% endblock %}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:site_name" content="CoIIect">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>{% block title %}coIIect{% endblock %}</title>
+      <link rel="icon" type="image.png" href="{% static 'images/diamond_title.png' %}" style="border-radius: 10px;">
+      <link rel="stylesheet" type="text/css" href="{% static 'collect/main.css' %}">
+      <script src="{% static 'collect/jquery-3.4.1.min.js' %}"></script>
+      <script src="{% static 'collect/main.js' %}"></script>
+      <script src="{% static 'collect/csrf.js' %}"></script>
+      <script src="https://kit.fontawesome.com/0284f0387e.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header class="commonHeader">
+          <div class="Hwrapper">
+            <div id="leftArea" class="mr5 ml5"></div>
+            <div class="Hcontents">
+              <div class="logoH hrefBox">
+                <h2>CoIIect</h2>
+                <a class="hrefBoxIn" href="{% url 'home' %}"></a>
+              </div>
+              <div class="mla mta mba">
+                <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                  <input name="next" type="hidden" value="{{ redirect_to }}">
+                  <select name="language">
+                      {% get_current_language as LANGUAGE_CODE %}
+                      {% get_available_languages as LANGUAGES %}
+                      {% get_language_info_list for LANGUAGES as languages %}
+                      {% for language in languages %}
+                          <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                              {{ language.name_local }} ({{ language.code }})
+                          </option>
+                      {% endfor %}
+                  </select>
+                  <input class="mta mba" type="submit" value="Change">
+              </form>
+              </div>
+              <div class="ml10 mba mta">
+                {% if user.is_authenticated %}
+                <div class="posB hrefBox flex-cen posBui">
+                  <div class="repUserImageBack hUserImage" style="background-image: url('{{ user.picture.url }}');"></div>
+                  <a href="{% url 'list' user.username %}" class="hrefBoxIn"></a>
+                </div>
+                {% else %}
+                <div class="hrefBox flex-cen">
+                  <span class="headerLogin pt5 pb5">{% trans "Login" %}
+                    <a href="{% url 'user:login' %}?next={{ request.path }}" class="hrefBoxIn"></a>
+                  </span>
+                </div>
+                {% endif %}
+              </div>
+              <div class="ml10">
+                <div class="posB2 hrefBox flex-cen" style="background-color: #bfbfbf;">
+                  <img src="{% static 'images/diamond_add2.png' %}">
+                  {% if user.is_authenticated %}
+                    <a href="{% url 'post' %}?next={{ request.path }}" class="hrefBoxIn"></a>
+                  {% else %}
+                    <a href="{% url 'post' %}" class="hrefBoxIn"></a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            <div id="rightArea" class="mr5 ml5"></div>
+            {% block header %}
+            {% endblock %}
+          </div>
+        </header>
+        <header class="narrowHeader">
+          <div class="narrowH">
+            <div class="hisN flex-normal sp_bw flex-row narrowHM h40px off">
+              <div class="SC_cat hrefBox flex-cen w20 borderL">
+                {% trans "Category" %}
+                <a href="{% url 'category' %}" class="hrefBoxIn"></a>
+              </div>
+              <div class="SC_pla hrefBox flex-cen w20 borderL">
+                {% trans "Place" %}
+                <a href="{% url 'place' %}" class="hrefBoxIn"></a>
+              </div>
+              <div class="SC_nice hrefBox flex-cen w20 borderL">
+                {% trans "Nice" %}
+                <a href="{% url 'nice' %}" class="hrefBoxIn"></a>
+              </div>
+              <div class="SC_staN flex-cen w20 borderL">
+                {% trans "State" %}
+                <a class="arrowD floatR ml10 mb5"></a>
+              </div>
+              <div class="SC_tagN flex-cen w20 borderL borderR">
+                {% trans "Tag" %}
+                <a class="arrowD floatR ml10 mb5"></a>
+              </div>
+            </div>
+            {% block hisUH %}
+            {% endblock hisUH %}
+            <div class="narrowHM">
+              <div class="states off w200px mla">
+                <div class="staCon" id="THIRSTY_sta">
+                  <a class="starV mr10">★</a>{% trans "THIRSTY" %}
+                </div>
+                <div class="staCon" id="NON-NEGOTIABLE_sta">
+                  <span class="heartV mr10">♥</span>{% trans "NON-NEGOTIABLE" %}
+                </div>
+                <div class="staCon" id="NEGOTIABLE_sta">
+                  <span class="circle-S mr10">●</span>{% trans "NEGOTIABLE" %}
+                </div>
+                <div class="staCon" id="WANT-SELL_sta">
+                  <span class="square-S mr10">■</span>{% trans "WANT-SELL" %}
+                </div>
+              </div>
+              <div class="tags w200px mla off">
+                <div class="tagCon" id="books_tag">
+                  {% trans "Books" %}
+                </div>
+                <div class="tagCon" id="moovie_tag">
+                  {% trans "Movie/Music" %}
+                </div>
+                <div class="tagCon" id="ele_tag">
+                  {% trans "Electronics" %}
+                </div>
+                <div class="tagCon" id="pc_tag">
+                  {% trans "PC" %}
+                </div>
+                <div class="tagCon" id="drink_tag">
+                 {% trans "Drink/Grocery" %}
+                </div>
+                <div class="tagCon" id="commo_tag">
+                  {% trans "Commodities" %}
+                </div>
+                <div class="tagCon" id="inte_tag">
+                  {% trans "Interior/Novelty" %}
+                </div>
+                <div class="tagCon" id="hand_tag">
+                  {% trans "Handmade" %}
+                </div>
+                <div class="tagCon" id="hobby_tag">
+                  {% trans "Hobby/Toy" %}
+                </div>
+                <div class="tagCon" id="clo_tag">
+                  {% trans "Clothes/Shoes/Bag" %}
+                </div>
+                <div class="tagCon" id="car_tag">
+                  {% trans "Car/Bike" %}
+                </div>
+                <div class="tagCon" id="sports_tag">
+                  {% trans "Sports/Outdoors" %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div id="topS">
+          {% block topS %}
+          {% endblock topS %}
+        </div>
+        <div id="wrapper">
+          <div class="content">
+            <aside id="leftArea" class="mr5 ml5 mb50">
+              <div class="slidebar pr5">
+                  <div class="hisN off">
+                     <div class="slideContent SC_rec hrefBox">
+                       {% trans "Recent" %}
+                       <a href="{% url 'home' %}" class="hrefBoxIn"></a>
+                     </div>
+                     <div class="slideContent hrefBox SC_cat">
+                       {% trans "Category" %}
+                       <a href="{% url 'category' %}" class="hrefBoxIn"></a>
+                     </div>
+                     <div class="slideContent hrefBox SC_pla">
+                       {% trans "Place" %}
+                       <a href="{% url 'place' %}" class="hrefBoxIn"></a>
+                     </div>
+                     <div class="slideContent SC_nice hrefBox">
+                       {% trans "Nice" %}
+                       <a href="{% url 'nice' %}" class="hrefBoxIn"></a>
+                     </div>
+                     <div class="slideContent hrefBox SC_sta">
+                       {% trans "State" %}
+                       <a class="arrowD floatR mla mr15"></a>
+                     </div>
+                       <div class="states off">
+                         <div class="staCon" id="THIRSTY_sta">
+                          <a class="starV mr10">★</a>
+                          <span>{% trans "THIRSTY" %}</span>
+                         </div>
+                         <div class="staCon" id="NON-NEGOTIABLE_sta">
+                          <span class="heartV mr10">♥</span>
+                          <span>{% trans "NON-NEGOTIABLE" %}</span>
+                         </div>
+                         <div class="staCon" id="NEGOTIABLE_sta">
+                          <span class="circle-S mr10">●</span>
+                          <span>{% trans "NEGOTIABLE" %}</span>
+                         </div>
+                         <div class="staCon" id="WANT-SELL_sta">
+                          <span class="square-S mr10">■</span>
+                          <span>{% trans "WANT-SELL" %}</span>
+                         </div>
+                       </div>
+                     <div class="slideContent SC_tag">
+                       {% trans "Tag" %}
+                       <a class="arrowD floatR mla mr15"></a>
+                     </div>
+                     <div class="tags off">
+                       <div class="tagCon" id="books_tag">
+                         {% trans "Books" %}
+                       </div>
+                       <div class="tagCon" id="moovie_tag">
+                         {% trans "Movie/Music" %}
+                       </div>
+                       <div class="tagCon" id="ele_tag">
+                         {% trans "Electronics" %}
+                       </div>
+                       <div class="tagCon" id="pc_tag">
+                         {% trans "PC" %}
+                       </div>
+                       <div class="tagCon" id="drink_tag">
+                        {% trans "Drink/Grocery" %}
+                       </div>
+                       <div class="tagCon" id="inte_tag">
+                        {% trans "Interior/Novelty" %}
+                       </div>
+                       <div class="tagCon" id="commo_tag">
+                        {% trans "Commodities" %}
+                      </div>
+                       <div class="tagCon" id="hand_tag">
+                         {% trans "Handmade" %}
+                       </div>
+                       <div class="tagCon" id="hobby_tag">
+                         {% trans "Hobby/Toy" %}
+                       </div>
+                       <div class="tagCon" id="clo_tag">
+                         {% trans "Clothes/Shoes/Bag" %}
+                       </div>
+                       <div class="tagCon" id="car_tag">
+                         {% trans "Car/Bike" %}
+                       </div>
+                       <div class="tagCon" id="sports_tag">
+                         {% trans "Sports/Outdoors" %}
+                       </div>
+                     </div>
+                     <div class="slideContent hrefBox SC_dow">
+                       {% trans "Download" %}
+                       <a href="{% url 'download_page' %}" class="hrefBoxIn"></a>
+                     </div>
+                  </div>
+                  {% block hisU %}
+                  {% endblock hisU %}
+                {% block left %}{% endblock left %}
+              </div>
+            </aside>
+            <main id="mainArea">
+              {% block content %}
+              {% endblock %}
+            </main>
+            <aside id="rightArea">
+                {% block right %}
+                {% endblock %}
+            </aside>
+          </div>
+        </div>
+        <footer></footer>
+        {% if user.is_authenticated %}
+        {% endif %}
+        {% block js %}{% endblock %}
+    </body>
+</html>

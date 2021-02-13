@@ -1,0 +1,24 @@
+{% extends 'collect/base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Withdraw" %}{% endblock %}
+{% block content %}
+<h3 class="pl11">Withdrawal</h3>
+<div class="mt10 per60 pl11">
+  <p>{% trans "Your collection and your user data is completely deleted." %}<br>
+     {% trans "Are you sure to withdraw?" %}
+  </p>
+  <div class="flex-normal mt10">
+    <a class="sakujoU submitFull pt5 pb5 flex-cen w100" >{% trans "Withdrawal" %}</a>
+  </div>
+  <div class="modal off"></div>
+  <div class="modal-con off">
+    <div>
+      <h3 style="text-align: center;">{% trans "Are you sure?" %}</h3>
+    </div>
+    <div class="mt25 flex-normal">
+      <a class="cancelBtnU flex-cen w50 h50px"><b>{% trans "Cancel" %}</b></a>
+      <a href="{% url 'user:user_delete' user.username %}" class="submitC flex-cen w50 h50px"><b>{% trans "Delete" %}</b></a>
+    </div>
+  </div>
+</div>
+{% endblock %}

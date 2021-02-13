@@ -1,0 +1,123 @@
+{% extends 'collect/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="formArea">
+  <h3>{{ tytle }}</h3>
+  <form method="post" action="" enctype="multipart/form-data" class="mt10">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="field">
+      <label for="id_name">{% trans "Name" %}:</label>
+      <span class="helptext">{{ form.name.help_text }}</span>
+      {{ form.name }}
+      {% if form.name.errors %}
+        {{ form.name.error }}
+      {% endif %}
+    </div>
+    <div class="field">
+      {{ form.product_name.label_tag }}
+      {{ form.product_name }}
+    </div>
+    <div class="field">
+      {{ form.num.label_tag }}
+      {{ form.num }}
+    </div>
+    <div class="field">
+      {{ form.category.label_tag }}<br>
+      {{ form.category }}<span id="new_cat" class="sw_new w10 mla submitB">+</span>
+      
+      <div class="cat_add pt5 pb3 off" id="cat_post1">
+          <input type="text" id="cat_name" placeholder="New category">
+          <span id="cat_button" class="w10 mla submitB">Add</span>
+      </div>
+    
+    </div>
+    <div class="field">
+      {{ form.place.label_tag }}
+      <span class="helptext color_Blue">{% trans "Only you can see" %}</span>
+      {{ form.place }}<span id="new_place" class="sw_new w10 mla submitB">+</span>
+
+      <div class="place_add pt5 pb3 off" id="place_post1">
+        <input type="text" id="place_name" placeholder="New place">
+        <span id="place_button" class="w10 mla submitB">{% trans "Add" %}</span>
+      </div>
+    </div>
+    <div class="field">
+      {{ form.state.label_tag }}
+      {{ form.state }}
+    </div>
+    <div class="field">
+      {{ form.public.label_tag }}
+      {{ form.public }}
+    </div>
+    <div class="field">
+      <label>{% trans "Tag" %}:</label><span class="helptext color_Blue">{% trans "At most 3" %}</span><br>
+      <div class="tag_select" id="id_tag">
+        {% for tag in tags %}
+          {% if tag in init_tags %}
+            <input id="tag_{{ tag }}" name="post_tag" value="{{ tag }}" type="checkbox" checked>
+            <label for="tag_{{ tag }}">{{ tag.label }}</label>
+          {% else %}
+            <input id="tag_{{ tag }}" name="post_tag" value="{{ tag }}" type="checkbox">
+            <label for="tag_{{ tag }}">{{ tag.label }}</label>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <!-- 画像 -->
+    <div class="postImageArea mt20">
+      {{ formset.management_form }}
+        {% for file_form in formset %}
+          <div class="image_field mt10">
+            {{ file_form.label_tag }}
+            {{ file_form }}
+          </div>
+        {% endfor %}
+    </div>
+    <!-- Additional -->
+    <div id="SW_add" class="post_sw mt20">
+      <h4>{% trans "Additional" %}<span>&#9660</span></h4>
+    </div>
+    <div class="add_Z opp_Zone pt10 off">
+      <div class="field">
+        {{ form.maker.label_tag }}
+        {{ form.maker }}
+      </div>
+      <div class="field">
+        {{ form.saved.label_tag }}
+        {{ form.saved }}
+      </div>
+      <div class="field">
+        {{ form.explain.label_tag }}
+        {{ form.explain }}
+      </div>
+    </div>
+    <!-- acq -->
+    <div id="SW_acq" class="post_sw mt20">
+      <h4>{% trans "Acquisition" %}<span>&#9660</span></h4>
+    </div>
+    <div class="acq_Z opp_Zone pt10 off">
+      <div class="field acq">
+        <label for="id_acq_day">{% trans "Day of acquisition" %}:</label>
+        {{ form.acq_day }}
+      </div>
+      <div class="field acq">
+        {{ form.acq_place.label_tag }}
+        {{ form.acq_place }}
+      </div>
+      <div class="field acq">
+        <label for="id_price">{% trans "Price" %}:</label>
+        {{ form.price }}
+      </div>
+    </div>
+    <input type="hidden" name="next" value="{{ request.GET.next }}">
+    <div class="mt20">
+      <button class="submitA mla" type="submit">{{ button }}</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{% static 'collect/posting.js' %}"></script>
+{% endblock %}

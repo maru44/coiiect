@@ -1,0 +1,116 @@
+{% extends "collect/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Registration" %}{% endblock %}
+{% block content %}
+<div class="per60 pl11">
+  <h3>{% trans "Sign up" %}</h3>
+    <div class="mt10">
+      <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="field">
+          {{ form.username.label_tag }}<br>
+          {{ form.username }}
+          {% if form.username.errors %}
+            {{ form.username.error }}
+          {% endif %}
+        </div>
+        <div class="field">
+            {{ form.name.label_tag }}<br>
+            {{ form.name }}
+            {% if form.name.errors %}
+              {{ form.name.error }}
+            {% endif %}
+        </div>
+        <div class="field">
+            {{ form.email.label_tag }}<br>
+            {{ form.email }}
+            {% if form.email.errors %}
+              {{ form.email.error }}
+            {% endif %}
+        </div>
+        <div class="field">
+            {{ form.password1.label_tag }}<br>
+            {{ form.password1 }}
+            {% if form.password1.errors %}
+              {{ form.password1.error }}
+            {% endif %}
+        </div>
+        <div class="field">
+            {{ form.password2.label_tag }}<br>
+            {{ form.password2 }}
+            {% if form.password2.errors %}
+              {{ form.password2.error }}
+            {% endif %}
+        </div>
+        <div class="mt10 kiyaku">
+          <input id="kiyakuInput" class="mr20" type="checkbox" value="">{% trans "I accept and agree to the " %}<a>{% trans "Terms of Use." %}</a>
+        </div>
+        <div class="modalR off"></div>
+        <div class="modalR-con off">
+          <div class="modal-title">
+            <h2>{% trans "Terms of Use" %}<span class="floatR closeBtn">×</span></h2>
+          </div>
+          <div class="modal-contents">
+            <div>
+              <h3>{% trans "User Registration" %}</h3>
+              <p>{% trans "You agree to keep your password confidential and will be responsible for all use of your account and password. We reserve the right to remove, reclaim, or change a username you select if we determine, in our sole discretion, that such username and name is inappropriate, obscene, or otherwise objectionable." %}</p>
+              <h3>{% trans "Changing Terms of Use" %}</h3>
+              <p>{% trans "If deemed necessary, we may change this agreement at any time without notifying the user. If you start using this service after changing these Terms, it is assumed that the user has agreed to the changed Terms." %}</p>          
+              <h3>{% trans "Prohibited Activities" %}</h3>
+              <p>{% trans "As a user of the Site, you agree not to" %}:</p>
+              <ol>
+                <li>{% trans "Systematically retrieve data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us." %}</li>
+                <li>{% trans "Make any unauthorized use of the Site, including collecting usernames and/or email addresses of users by electronic or other means for the purpose of Sending unsolicited email, or creating user accounts by automated means or under false pretenses." %}</li>
+                <li>{% trans "Use a buying agent or purchasing agent to make purchases on the Site." %}</li>
+                <li>{% trans "Circumvent, disable, or otherwise interfere with security-related features of the Site, including features that prevent or restrict the use or copying of any Content or enforce limitations on the use of the Site and/or the Content contained therein." %}</li>
+                <li>{% trans "Engage in unauthorized framing of or linking to the Site." %}</li>
+                <li>{% trans "Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords" %};</li>
+                <li>{% trans "Make improper use of our support services or submit false reports of abuse or misconduct." %}</li>
+                <li>{% trans "Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools." %}</li>
+                <li>{% trans "Interfere with, disrupt, or create an undue burden on the Site or the networks or services connected to the Site." %}</li>
+                <li>{% trans "Attempt to impersonate another user or person or use the username of another user." %}</li>
+                <li>{% trans "Sell or otherwise transfer your profile." %}</li>
+                <li>{% trans "Use any information obtained from the Site in order to harass, abuse, or harm another person." %}</li>
+                <li>{% trans "Use the Site as part of any effort to compete with us or otherwise use the Site and/or the Content for any revenue-generating endeavor or commercial enterprise." %}</li>
+                <li>{% trans "Decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Site." %}</li>
+                <li>{% trans "Attempt to bypass any measures of the Site designed to prevent or restrict access to the Site, or any portion of the Site." %}</li>
+                <li>{% trans "Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Site to you." %}</li>
+                <li>{% trans "Copy or adapt the Site’s software, including but not limited to Python, HTML, JavaScript, or other code." %}</li>
+                <li>{% trans "Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and Spamming (continuous posting of repetitive text), that interferes with any party’s uninterrupted use and enjoyment of the Site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Site." %}</li>
+                <li>{% trans "Except as may be the result of standard search engine or Internet browser usage, use, launch, develop, or distribute any automated system, including without limitation, any spider, robot, cheat utility, scraper, or offline reader that accesses the Site, or using or launching any unauthorized script or other software." %}</li>
+                <li>{% trans "Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site." %}</li>
+                <li>{% trans "Use the Site in a manner inconsistent with any applicable laws or regulations." %}</li>
+              </ol>
+              <h3>{% trans "Guidelines for posting" %}</h3>
+              <p>{% trans "If a user violate any of these Terms, we can delete the posted data, restrict the use of the service, and delete the user's registration without prior notice." %}<br><br>
+                {% trans "The posting rules are as follows." %}</p>
+              <ol>
+                <li>{% trans "Your posts should not contain offensive profanity, or abusive, racist, offensive, or hate language" %};</li>
+                <li>{% trans "Your posts should not contain discriminatory references based on religion, race, gender, national origin, age, marital status, sexual orientation, or disability" %};</li>
+                <li>{% trans "Your posts should not contain references to illegal activity" %};</li>
+                <li>{% trans "You may not post any false or misleading statements" %};</li>
+                <li>{% trans "You may not organize a campaign encouraging others to post, whether positive or negative." %}</li>
+                <li>{% trans "We may accept, reject, or remove posts in our sole discretion. We have absolutely no obligation to screen posts or to delete posts, even if anyone considers posts objectionable or inaccurate. Posts are not endorsed by us, and do not necessarily represent our opinions or the views of any of our affiliates or partners." %}</li>
+              </ol>
+              <h3>{% trans "Privacy policy" %}</h3>
+              <p>{% trans "To reflect in the recommendation, get the action log." %}<br>
+                {% trans "User information will not be provided to third parties or used maliciously." %}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="mt20">
+          <button disabled class="pt10 pb10 w100 submitFull" id="regiSub" type="submit">{% trans "Register" %}</button>
+        </div>
+      </form>
+      <h4 class="mt20" style="text-align: center;">---- {% trans "Login" %} ----</h4>
+      <div class="mt10">
+        <button class="pt10 pb10 w100 submitFull hrefBox">
+          {% trans "Login" %}
+          <a href="{% url 'user:login' %}" class="hrefBoxIn"></a>
+        </button>
+      </div>
+    </div>
+</div>
+{% endblock content %}

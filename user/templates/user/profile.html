@@ -1,0 +1,56 @@
+{% extends "collect/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans "Profile" %}{% endblock %}
+{% block content %}
+<form class="" method="POST" enctype="multipart/form-data">
+    <h3>
+        {% trans "Change profile" %}
+    </h3>
+    <div class="mt10 per60">
+      {% csrf_token %}
+      <div class="field">
+        {{ uform.name.label_tag }}<br>
+        {{ uform.name }}<br>
+      </div>
+      <div class="field">
+        {{ pform.picture.label_tag }}<br>
+        {{ pform.picture }}
+      </div>
+      <div class="field">
+    {{ uform.intro.label_tag }}<br>
+          {{ uform.intro }}
+      </div>
+      <div class="form-group flex-normal">
+        <button class="submitFull pt10 pb10 flex-cen w100" type="submit">{% trans "Change" %}</button>
+      </div>
+    </div>
+</form>
+<div class="mt20">
+  <h3>
+    {% trans "Logout" %}
+  </h3>
+  <div class="flex-normal">
+    <span class="LOBtn submitFull pt10 pb10 flex-cen w100 mt5">{% trans "Logout" %}</span>
+  </div>
+  <div class="modal off"></div>
+  <div class="modal-con off">
+    <div>
+      <h3 style="text-align: center;">{% trans "Logout" %}?</h3>
+    </div>
+    <div class="mt25 flex-normal">
+      <a class="cancelBtn flex-cen w50 h50px"><b>{% trans "Cancel" %}</b></a>
+      <a class="DelColl submitC flex-cen w50 h50px" href="{% url 'user:logout' %}"><b>{% trans "Logout" %}</b></a>
+    </div>
+  </div>
+</div>
+<div class="mt20">
+  <h3>{% trans "Withdrawal" %}</h3>
+  <div class="flex-normal">
+    <a class="submitFull pt10 pb10 flex-cen w100 mt5" href="{% url 'user:delete_conf' user.username %}">{% trans "Withdrawal" %}</a>
+  </div>
+</div>
+{% endblock content %}
+{% block js %}
+<script src="{% static 'collect/profile.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,212 @@
+{% extends 'collect/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans "Category" %}{% endblock %}
+{% block content %}
+<section class="pbBottom">
+    <div class="columnArea">
+        <h3 class="Midashi">{{ theme }}</h3>
+          {% for category in categories %}
+            <div class="category_part mt5 mb5 pack_{{category.pk }}" id="{{ category.name }}">
+                <div class="dropdown pt5 pb5 flex-normal pr10 pl10" id="category_{{ category.pk }}">
+                    <div class="cat_title brAll flex1"><h4>{{ category.name }}</h4></div>
+                    <div class="mla mta mba">
+                      <div class="w60px countsZ">
+                        <h4>{{ category.collect_set.count }}</h4>
+                      </div>
+                    </div>
+                </div>
+              <div class="w120px flex-normal">
+                <div class="pl5 w50 pr5">
+                  <div id="nameChaBtn_{{ category.pk }}" class="submitB pt3 pb3 nameChaBtn flex-cen w100 h100">
+                    <a>ℵ</a>
+                  </div>
+                </div>
+                <div class="pl5 w50 pr5">
+                  <div id="delOpenBtn_{{ category.pk }}" class="submitB pt3 pb3 delOpenBtn flex-cen w100 h100">
+                    <a>-</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="nameChaZone_{{ category.pk }} cat_add pb5 pt3 flex-normal mb15 mt5 off">
+              <input type="text" class="flex1" id="cat_name_{{ category.pk }}" maxlength="24" placeholder="Category name">
+              <div class="pr5 pl5 w120px">
+                <span id="cat_btn_{{ category.pk }}" class="NCB submitB w100 h100 flex-cen">Change</span>
+              </div>
+            </div>
+            {% if category.collect_set.count != 0 %}
+            <div class="List category_{{ category.pk }} off" style="width: 100%;">
+              {% for collect in category.collect_set.all %}
+                <article class="collectList hrefBox category_col_{{ category.pk }}{% for tag in collect.tag.all %} {{ tag.text }}_arti{% endfor %} {{ collect.state }}_arti">
+                  <div class="imageFrame">
+                    {% if collect.photo_set %}
+                      <img src="{{ collect.photo_set.first.photo.url }}">
+                    {% endif %}
+                  </div>
+                  <div class="collectinfo">
+                    <div class="ue">
+                        <div class="itemName">
+                          <h3>{{ collect.name }}</h3>
+                        </div>
+                        <div class="itemVisual">
+                            {% if collect.state == "NEGOTIABLE" %}
+                              <a class="circleV"></a>
+                            {% elif collect.state == "THIRSTY" %}
+                              <a class="starV">★</a>
+                            {% elif collect.state == "NON-NEGOTIABLE" %}
+                              <a class="heartV">♥</a>
+                            {% else %}
+                              <a class="squareV"></a>
+                            {% endif %}
+                          <div class="itemPrice">
+                            <a class="priceV">
+                              {% if collect.price %}
+                                {{ collect.price }}
+                              {% endif %}
+                            </a>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="shita">
+                      <div class="hosokuA">
+                        <div class="sonotaA">
+                          {% if collect.niced %}
+                            <i class="far fa-thumbs-up mr15 salmon"></i>
+                          {% else %}
+                            <i class="far fa-thumbs-up mr15"></i>
+                          {% endif %}
+                          <span>
+                            {{ collect.nice_count }}
+                          </span>
+                          <i class="far fa-comments mr15 ml20"></i>
+                          <span>
+                            {{ collect.com_count }}
+                          </span>
+                        </div>
+                        <div class="sonotaA">
+                          <span>{{ collect.posted }}</span>
+                        </div>
+                      </div>
+                      <div class="placeArea">
+                        <a class="placeInfo">
+                          {% if collect.place %}
+                            {{ collect.place }}
+                          {% endif %}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <a class="hrefBoxIn" href="{% url 'detail' collect.id %}"></a>
+                </article>
+              {% endfor %}
+            </div>
+          {% endif %}
+            <div class="modal off" id="delZone_{{ category.pk }}"></div>
+            <div class="modal-con off" id="delZone_{{ category.pk }}_con">
+              <div>
+                <h3 style="text-align: center;">Delete {{ category.name }}?</h3>
+                <h4 style="text-align: center;">*{% trans "contents is not deleted" %}</h4>
+              </div>
+              <div class="mt25 flex-normal">
+                <a style="height: 50px" class="cancelBtn flex-cen w50 h50px"><b>{% trans "Cancel" %}</b></a>
+                <a id="catDelBtn_{{ category.pk }}" class="submitC categoryDelBtn flex-cen w50 h50px"><b>{% trans "Delete" %}</b></a>
+              </div>
+            </div>
+          {% endfor %}
+        <div class="category_part mt5 mb5 NCA">
+          <div class="dropdown pb5 pt5 flex-normal pr10 pl10" id="no_category">
+            <div class="cat_title brAll flex1">
+              <h4 class="cat_title">{% trans "No category" %}</h4>
+            </div>
+            <div class="mla mta mba">
+              <div class="w60px countsZ">
+                <h4 class="no_no">{{ no_cats.count }}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% if no_cats.count != 0 %}
+        <div class="List no_category off">
+          {% for collect in no_cats %}
+          <article class="collectList hrefBox no_cats{% for tag in collect.tag.all %} {{ tag.text }}_arti{% endfor %} {{ collect.state }}_arti">
+            <div class="imageFrame">
+              {% if collect.photo_set %}
+                <img src="{{ collect.photo_set.first.photo.url }}">
+              {% endif %}
+            </div>
+            <div class="collectinfo">
+              <div class="ue">
+                  <div class="itemName">
+                    <h3>{{ collect.name }}</h3>
+                  </div>
+                  <div class="itemVisual">
+                      {% if collect.state == "NEGOTIABLE" %}
+                        <a class="circleV"></a>
+                      {% elif collect.state == "THIRSTY" %}
+                        <a class="starV">★</a>
+                      {% elif collect.state == "NON-NEGOTIABLE" %}
+                        <a class="heartV">♥</a>
+                      {% else %}
+                        <a class="squareV"></a>
+                      {% endif %}
+                    <div class="itemPrice">
+                      <a class="priceV">
+                        {% if collect.price %}
+                          {{ collect.price }}
+                        {% endif %}
+                      </a>
+                    </div>
+                  </div>
+              </div>
+              <div class="shita">
+                <div class="hosokuA">
+                  <div class="sonotaA">
+                    {% if collect.niced %}
+                      <i class="far fa-thumbs-up mr15 salmon"></i>
+                    {% else %}
+                      <i class="far fa-thumbs-up mr15"></i>
+                    {% endif %}
+                    <span>
+                      {{ collect.nice_count }}
+                    </span>
+                    <i class="far fa-comments mr15 ml20"></i>
+                    <span>
+                      {{ collect.com_count }}
+                    </span>
+                  </div>
+                  <div class="sonotaA">
+                    <span>{{ collect.posted }}</span>
+                  </div>
+                </div>
+                <div class="placeArea">
+                  <a class="placeInfo">
+                    {% if collect.place %}
+                      {{ collect.place }}
+                    {% endif %}
+                  </a>
+                </div>
+              </div>
+            </div>
+            <a class="hrefBoxIn" href="{% url 'detail' collect.id %}"></a>
+          </article>
+          {% endfor %}
+        </div>
+      {% endif %}
+      <div class="list_add mt20 pb3 flex-normal" id="cat_post1">
+        <input type="text" id="cat_name" maxlength="24" class="flex1" placeholder="New category">
+        <div class="pr5 pl5 w120px">
+          <span id="cat_button" class="w100 submitB pt3 pb3">{% trans "Add" %}</span>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %}
+{% block js %}
+<script src="{% static 'collect/attribute.js' %}"></script>
+<script>
+$(function(){
+  $("div .SC_cat").addClass("active");
+});
+</script>
+{% endblock %}

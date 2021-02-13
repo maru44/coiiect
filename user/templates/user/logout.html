@@ -1,0 +1,9 @@
+{% extends "collect/base.html" %}
+{% block content %}
+    <h3 class="black-important">You've been logged out</h3>
+    <div class="">
+        <small class="text-muted">
+            Login again?<a class="" href="{% url 'user:login' %}">Login</a>
+        </small>
+    </div>
+{% endblock content %}

@@ -1,0 +1,231 @@
+{% extends 'collect/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block ogp %}
+  <meta property="og:type" content="website">
+  <meta property="og:description" content='{% trans "Manage collection with us." %}'>
+    <meta property="og:image" content="https://coiiect.com{{ target.picture.url }}">
+    <meta property="og:url" content="https://coiiect.com">
+    <meta property="og:title" content="CoIIect">
+{% endblock %}
+{% block hisUH %}
+<div class="hisU flex-normal sp_bw flex-row narrowHM h40px off">
+  <div class="SC_rec hrefBox flex-cen w25 borderL">
+    {% trans "Recent" %}
+    <a href="{% url 'list' target.username %}" class="hrefBoxIn"></a>
+  </div>
+  <div class="SC_staN flex-cen w25 borderL">
+    {% trans "State" %}
+    <a class="arrowD floatR ml10 mb5"></a>
+  </div>
+  <div class="SC_tagN flex-cen w25 borderL">
+    {% trans "Tag" %}
+    <a class="arrowD floatR ml10 mb5"></a>
+  </div>
+  <div class="flex-cen w25 toHome hrefBox">
+    <i class="fas fa-home fa-lg"></i>
+    <a href="{% url 'home' %}" class="hrefBoxIn"></a>
+  </div>
+</div>
+{% endblock hisUH %}
+{% block hisU %}
+<div class="hisU off">
+  <div class="slideContent SC_rec hrefBox">
+    {% trans "Recent" %}
+    <a href="{% url 'list' target.username %}" class="hrefBoxIn"></a>
+  </div>
+  <div class="slideContent hrefBox SC_sta">
+    {% trans "State" %}
+    <a class="arrowD floatR mla mr15"></a>
+  </div>
+    <div class="states off">
+      <div class="staCon" id="THIRSTY_sta">
+        <a class="starV mr10">★</a>{% trans "THIRSTY" %}
+      </div>
+      <div class="staCon" id="NON-NEGOTIABLE_sta">
+        <span class="heartV mr10">♥</span>{% trans "NON-NEGOTIABLE" %}
+      </div>
+      <div class="staCon" id="NEGOTIABLE_sta">
+        <span class="circle-S mr10">●</span>{% trans "NEGOTIABLE" %}
+      </div>
+      <div class="staCon" id="WANT-SELL_sta">
+        <span class="square-S mr10">■</span>{% trans "WANT-SELL" %}
+      </div>
+    </div>
+  <div class="slideContent SC_tag">
+    {% trans "Tag" %}
+    <a class="arrowD floatR mla mr15"></a>
+  </div>
+  <div class="tags off">
+    <div class="tagCon" id="books_tag">
+      {% trans "Books" %}
+    </div>
+    <div class="tagCon" id="moovie_tag">
+      {% trans "Movie/Music" %}
+    </div>
+    <div class="tagCon" id="ele_tag">
+      {% trans "Electronics" %}
+    </div>
+    <div class="tagCon" id="pc_tag">
+      {% trans "PC" %}
+    </div>
+    <div class="tagCon" id="drink_tag">
+     {% trans "Drink/Grocery" %}
+    </div>
+    <div class="tagCon" id="commo_tag">
+     {% trans "Commodities" %}
+    </div>
+    <div class="tagCon" id="inte_tag">
+     {% trans "Interior/Novelty" %}
+    </div>
+    <div class="tagCon" id="hand_tag">
+      {% trans "Handmade" %}
+    </div>
+    <div class="tagCon" id="hobby_tag">
+      {% trans "Hobby/Toy" %}
+    </div>
+    <div class="tagCon" id="clo_tag">
+      {% trans "Clothes/Shoes/Bag" %}
+    </div>
+    <div class="tagCon" id="car_tag">
+      {% trans "Car/Bike" %}
+    </div>
+    <div class="tagCon" id="sports_tag">
+      {% trans "Sports/Outdoors" %}
+    </div>
+  </div>
+  <div class="slideContent hrefBox flex-normal toHome">
+    {% trans "Home" %}
+    <i class="fas fa-home fa-lg mr7"></i>
+    <a href="{% url 'home' %}" class="hrefBoxIn"></a>
+  </div>
+</div>
+{% endblock hisU %}
+{% block content %}
+  <section class="top">
+    <div class="columnArea">
+    </div>
+  </section>
+  {% include 'collect/search_form.html' %}
+  <section class="pbBottom">
+    <div class="columnArea">
+      <h3 class="pl11">{{ target.name }}{% trans "'s collection" %}</h3>
+      <div class="mt5 pt3 bgGray hrefBox pb3">
+        <div class="ownerZoneInstant">
+          <div class="OZI mt5 ml10 mr10">
+            <div class="ownerImageBack"></div>
+            <div class="ownerNameZone">
+                <h4>{{ target.name }}</h4>
+            </div>
+          </div>
+        </div>
+        <div class="ownerIntro mt5 ml10 mr10">
+          <p>{{ target.intro }}</p>
+        </div>
+        {% if request.user == target %}
+          <a href="{% url 'user:profile' %}" class="hrefBoxIn"></a>
+        {% endif %}
+      </div>
+      <h3 class="mb5 pl11 mt15">{{ theme }}</h3>
+      {% for collect in collects %}
+        <article class="collectList hrefBox{% for tag in collect.tag.all %} {{ tag.text }}_arti{% endfor %} {{ collect.state }}_arti">
+          <div class="imageFrame">
+            {% if collect.photo_set %}
+              <img src="{{ collect.photo_set.first.photo.url }}">
+            {% endif %}
+          </div>
+          <div class="collectinfo">
+            <div class="ue">
+              <div class="itemName">
+                <h3>{{ collect.name }}</h3>
+              </div>
+              <div class="itemVisual">
+                {% if collect.state == "NEGOTIABLE" %}
+                  <a class="circleV"></a>
+                {% elif collect.state == "THIRSTY" %}
+                  <a class="starV">★</a>
+                {% elif collect.state == "NON-NEGOTIABLE" %}
+                  <a class="heartV">♥</a>
+                {% else %}
+                  <a class="squareV"></a>
+                {% endif %}
+                <a class="priceV">
+                  {% if collect.price %}
+                    {{ collect.price }}
+                  {% endif %}
+                </a>
+              </div>
+            </div>
+            <div class="shita">
+              <div class="hosokuA">
+                <div class="sonotaA">
+                  {% if request.user.is_authenticated %}
+                    {% if collect.niced %}
+                      <i class="far fa-thumbs-up mr15 salmon"></i>
+                    {% else %}
+                      <i class="far fa-thumbs-up mr15"></i>
+                    {% endif %}
+                  {% else %}
+                    <i class="far fa-thumbs-up mr15"></i>
+                  {% endif %}
+                  <span>
+                    {{ collect.nice_count }}
+                  </span>
+                  <i class="far fa-comments mr15 ml20"></i>
+                  <span>
+                    {{ collect.com_count }}
+                  </span>
+                </div>
+                <div class="sonotaA">
+                  <span>{{ collect.posted }}</span>
+                </div>
+              </div>
+              <div class="placeArea">
+                <a class="placeInfo">
+                  owner: {{ collect.user.name }}
+                </a>
+              </div>
+            </div>
+          </div>
+          <a class="hrefBoxIn" href="{% url 'detail' collect.id %}"></a>
+        </article>
+      {% endfor %}
+      <div class="shareZone flex-normal sp_bw mt30">
+          <div class="shareWide face hrefBox flex-normal">
+            <div class="faceIcon mt8 fa-lg">
+              <i class="fab fa-facebook-square"></i>
+            </div>
+            <div class="flex1 textCen colorW mta mba normalWeight">
+              share
+            </div>
+            <a class="hrefBoxIn" href="https://www.facebook.com/share.php?u={{ request.scheme }}://{{ request.get_host }}{{ request.path }}" rel="nofollow" target="_blank"></a>
+          </div>
+          <div class="shareWide twi hrefBox flex-normal">
+            <div class="twiIcon h50px">
+              <i class="fab fa-twitter fa-lg mt12"></i>
+            </div>
+            <div class="flex1 textCen colorW mta mba normalWeight">
+              share
+            </div>
+            <a class="hrefBoxIn" href="https://twitter.com/share?url={{ request.scheme }}://{{ request.get_host }}{{ request.path }}&text={{ target.username }}'s collection'" rel="nofollow" target="_blank"></a>
+          </div>
+      </div>
+    </div>
+  </section>
+<style>
+.ownerImageBack {
+    background-image: url("{{ target.picture.url }}");
+    width: 60px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover !important;
+}
+</style>
+{% endblock %}
+{% block js %}
+<script>
+$(function(){
+  $("div .SC_rec").addClass("active");
+});
+</script>
+{% endblock %}

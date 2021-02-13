@@ -1,0 +1,115 @@
+{% extends 'collect/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+  <section class="top">
+    <div class="columnArea">
+    </div>
+  </section>
+  <section>
+    <div class="columnArea">
+      <div class="searchArea mb15">
+        <form role="search" action="{% url 'search' %}" class="flex-normal">
+          {% csrf_token %}
+          <select name="selection" id="selection">
+            <option value="all">{% trans "All" %}</option>
+            <option value="name">{% trans "Name" %}</option>
+            <option value="product">{% trans "Product" %}</option>
+            <option value="maker">{% trans "Maker" %}</option>
+          </select>
+          <input name="search" id="searchINP" type="text" class="flex1 mr10 ml10">
+          <button type="submit" class="pl5 pr5 submitB">{% trans "Search" %}</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section class="pbBottom">
+    <div class="columnArea">
+      <h3 class="Midashi">{{ theme }}</h3>
+      {% for collect in page_obj %}
+        <article class="collectList hrefBox{% for tag in collect.tag.all %} {{ tag.text }}_arti{% endfor %} {{ collect.state }}_arti">
+              <div class="imageFrame">
+                {% if collect.photo_set %}
+                  <img src="{{ collect.photo_set.first.photo.url }}">
+                {% endif %}
+              </div>
+              <div class="collectinfo">
+                <div class="ue">
+                  <div class="itemName">
+                    <h3>{{ collect.name }}</h3>
+                  </div>
+                  <div class="itemVisual">
+                      {% if collect.state == "NEGOTIABLE" %}
+                        <a class="circleV"></a>
+                      {% elif collect.state == "THIRSTY" %}
+                        <a class="starV">★</a>
+                      {% elif collect.state == "NON-NEGOTIABLE" %}
+                        <a class="heartV">♥</a>
+                      {% else %}
+                        <a class="squareV"></a>
+                      {% endif %}
+                    <div class="itemPrice">
+                      <a class="priceV">
+                        {% if collect.price %}
+                          {{ collect.price }}
+                        {% endif %}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="shita">
+                  <div class="hosokuA">
+                    <div class="sonotaA">
+                      {% if request.user.is_authenticated %}
+                        {% if collect.niced %}
+                          <i class="far fa-thumbs-up mr15 salmon"></i>
+                        {% else %}
+                          <i class="far fa-thumbs-up mr15"></i>
+                        {% endif %}
+                      {% else %}
+                        <i class="far fa-thumbs-up mr15"></i>
+                      {% endif %}
+                      <span>
+                        {{ collect.nice_count }}
+                      </span>
+                      <i class="far fa-comments mr15 ml20"></i>
+                      <span>
+                        {{ collect.com_count }}
+                      </span>
+                    </div>
+                    <div class="sonotaA">
+                      <span>{{ collect.posted }}</span>
+                    </div>
+                  </div>
+                  <div class="placeArea">
+                    <a class="placeInfo">
+                      owner: {{ collect.user.name }}
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <a class="hrefBoxIn" href="{% url 'detail' collect.id %}"></a>
+        </article>
+      {% endfor %}
+      <div class="pagination">
+          {% if page_obj.has_previous %}
+            <a href="?csrfmiddlewaretoken={{ csrf_token }}&selection={{ selection }}&search={{ search }}">&laquo; {% trans "first" %}</a>
+            <a href="?csrfmiddlewaretoken={{ csrf_token }}&selection={{ selection }}&search={{ search }}&page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a>
+          {% endif %}
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+          {% if page_obj.has_next %}
+            <a href="?csrfmiddlewaretoken={{ csrf_token }}&selection={{ selection }}&search={{ search }}&page={{ page_obj.next_page_number }}">{% trans "next" %}</a>
+            <a href="?csrfmiddlewaretoken={{ csrf_token }}&selection={{ selection }}&search={{ search }}&page={{ page_obj.paginator.num_pages }}">{% trans "last" %} &raquo;</a>
+          {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block js %}
+<script>
+  document.getElementById("searchINP").value = "{{ search }}";
+  $("#selection").val("{{ selection }}");
+</script>
+{% endblock %}

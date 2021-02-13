@@ -1,0 +1,175 @@
+{% extends 'collect/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+  {% if user.is_authenticated %}
+  <section class="pbBottom">
+    {% include 'collect/search_form.html' %}
+    <div class="columnArea">
+        <h3 class="Midashi">{{ theme }}</h3>
+        {% for collect in collects %}
+          <article class="collectList hrefBox{% for tag in collect.tag.all %} {{ tag.text }}_arti{% endfor %} {{ collect.state }}_arti">
+            <div class="imageFrame">
+              {% if collect.photo_set %}
+                <img src="{{ collect.photo_set.first.photo.url }}">
+              {% endif %}
+            </div>
+            <div class="collectinfo">
+              <div class="ue">
+                <div class="itemName">
+                  <h3>{{ collect.name }}</h3>
+                </div>
+                <div class="itemVisual">
+                    {% if collect.state == "NEGOTIABLE" %}
+                      <a class="circleV"></a>
+                    {% elif collect.state == "THIRSTY" %}
+                      <a class="starV">★</a>
+                    {% elif collect.state == "NON-NEGOTIABLE" %}
+                      <a class="heartV">♥</a>
+                    {% else %}
+                      <a class="squareV"></a>
+                    {% endif %}
+                  <div class="itemPrice">
+                    <a class="priceV">
+                      {% if collect.price %}
+                        {{ collect.price }}
+                      {% endif %}
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="shita">
+                <div class="hosokuA">
+                  <div class="sonotaA">
+                        {% if collect.niced %}
+                          <i class="far fa-thumbs-up mr15 salmon"></i>
+                        {% else %}
+                          <i class="far fa-thumbs-up mr15"></i>
+                        {% endif %}
+                    <span>
+                      {{ collect.nice_count }}
+                    </span>
+                    <i class="far fa-comments mr15 ml20"></i>
+                    <span>
+                      {{ collect.com_count }}
+                    </span>
+                  </div>
+                  <div class="sonotaA">
+                    <span>{{ collect.posted }}</span>
+                  </div>
+                </div>
+                <div class="placeArea">
+                  <a class="placeInfo">
+                    {% if request.user == collect.user %}
+                      {% if collect.place %}
+                        {{ collect.place }}
+                      {% endif %}
+                    {% endif %}
+                  </a>
+                </div>
+              </div>
+            </div>
+            <a class="hrefBoxIn" href="{% url 'detail' collect.id %}"></a>
+          </article>
+        {% endfor %}
+        {% if collects.count > 0 %}
+        <div class="mt20 flex-normal narrowDL">
+          <span class="flex-cen w100 pt10 pb10 hrefBox submitFull">
+            {% trans "Download csv" %}
+          <a class="hrefBoxIn" href="{% url 'download_page' %}"></a>
+          </span>
+        </div>
+        {% endif %}
+      <div class="shareZone flex-normal sp_bw mt10">
+          <div class="shareWide face hrefBox flex-normal">
+            <div class="faceIcon mt8 fa-lg">
+              <i class="fab fa-facebook-square"></i>
+            </div>
+            <div class="flex1 textCen colorW mta mba normalWeight">
+              share
+            </div>
+            <a class="hrefBoxIn" href="https://www.facebook.com/share.php?u={{ request.scheme }}://{{ request.get_host }}/collection/{{ user.username }}" rel="nofollow" target="_blank"></a>
+          </div>
+          <div class="shareWide twi hrefBox flex-normal">
+            <div class="twiIcon h50px">
+              <i class="fab fa-twitter fa-lg mt12"></i>
+            </div>
+            <div class="flex1 textCen colorW mta mba normalWeight">
+              share
+            </div>
+            <a class="hrefBoxIn" href="https://twitter.com/share?url={{ request.scheme }}://{{ request.get_host }}/collection/{{ user.username }}&text={{ user.username }}" rel="nofollow" target="_blank"></a>
+          </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+{% endblock %}
+{% block topS %}
+  {% if user.is_anonymous %}
+  <section>
+    <div class="tops">
+      <div class="topImage"></div>
+      <h1>Manage your collection<br>
+        with us
+      </h1>
+      <div class="introButton">
+        <span class="hrefBox">
+          {% trans "About" %}
+          <a href="#middles" class="hrefBoxIn"></a>
+        </span>
+        <span class="hrefBox">
+          {% trans "Examples" %}
+          <a href="{% url 'example' %}" class="hrefBoxIn"></a>
+        </span>
+      </div>
+    </div>
+    <div id="middles">
+      <div class="mb20 introContext">
+        <h2 class="textCen mb10 pt20 f40px">Main functions</h2>
+        <div class="flex-normal"><i class="fas fa-check mr10 ml10"></i><p>{% trans "Easy-to-see collection list." %}</p><br></div>
+        <div class="flex-normal"><i class="fas fa-check mr10 ml10 mba"></i><p>{% trans "You can write various information such as date of purchase, place of purchase, and memories." %}</p></div>
+        <div class="flex-normal"><i class="fas fa-check mr10 ml10"></i><p>{% trans "Filtering by tags, location, status and category." %}</p></div>
+      </div>
+      <div id="introMovie">
+        <iframe width="100%" src="https://www.youtube.com/embed/M1V-M5qRbuk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <h1 class="textCen mt30 salmon f40px">Let's start!!</h1>
+      <div class="mt20 bottoms flex-normal sp-ev">
+        <span class="hrefBox">
+          Sign in
+          <a class="hrefBoxIn" href="{% url 'user:login' %}"></a>
+        </span>
+        <span class="hrefBox">
+          Sign up
+          <a class="hrefBoxIn" href="{% url 'user:register' %}"></a>
+        </span>
+      </div>
+    </div>
+  </section>
+  <style>
+    .topImage {
+      background: url("{% static 'images/top-image_big2.png' %}") no-repeat center;
+    }
+    #leftArea, #rightArea, .narrowH, #wrapper {
+      display: none;
+    }
+    @media screen and (max-width: 1199px) {
+      .topImage {
+        background: url("{% static 'images/top-image.png' %}") no-repeat center;
+      }
+    }
+    @media screen and (max-width: 599px) {
+      .topImage {
+        background: url("{% static 'images/top-image_small.png' %}") no-repeat center;
+      }
+    }
+  </style>
+  {% endif %}
+{% endblock %}
+{% block js %}
+<script>
+$(function(){
+  $("div .SC_rec").addClass("active");
+});
+</script>
+{% endblock %}

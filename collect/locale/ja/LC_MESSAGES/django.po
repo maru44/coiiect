@@ -1,0 +1,588 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-24 17:11+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: collect/models.py:11 collect/templates/collect/base.html:124
+#: collect/templates/collect/base.html:208
+#: collect/templates/collect/detail.html:67
+#: collect/templates/collect/user_home.html:55
+msgid "Books"
+msgstr "本"
+
+#: collect/models.py:12 collect/templates/collect/base.html:127
+#: collect/templates/collect/base.html:211
+#: collect/templates/collect/detail.html:70
+#: collect/templates/collect/user_home.html:58
+msgid "Movie/Music"
+msgstr "映像/音楽"
+
+#: collect/models.py:13 collect/templates/collect/base.html:130
+#: collect/templates/collect/base.html:214
+#: collect/templates/collect/detail.html:73
+#: collect/templates/collect/user_home.html:61
+msgid "Electronics"
+msgstr "家電"
+
+#: collect/models.py:14 collect/templates/collect/base.html:133
+#: collect/templates/collect/base.html:217
+#: collect/templates/collect/detail.html:76
+#: collect/templates/collect/user_home.html:64
+msgid "PC"
+msgstr ""
+
+#: collect/models.py:15 collect/templates/collect/base.html:136
+#: collect/templates/collect/base.html:220
+#: collect/templates/collect/detail.html:79
+#: collect/templates/collect/user_home.html:67
+msgid "Drink/Grocery"
+msgstr "飲料品/食料品"
+
+#: collect/models.py:16 collect/templates/collect/base.html:142
+#: collect/templates/collect/base.html:223
+#: collect/templates/collect/detail.html:85
+#: collect/templates/collect/user_home.html:73
+msgid "Interior/Novelty"
+msgstr "インテリア/雑貨"
+
+#: collect/models.py:17 collect/templates/collect/base.html:139
+#: collect/templates/collect/base.html:226
+#: collect/templates/collect/detail.html:82
+#: collect/templates/collect/user_home.html:70
+msgid "Commodities"
+msgstr "日用品"
+
+#: collect/models.py:18 collect/templates/collect/base.html:145
+#: collect/templates/collect/base.html:229
+#: collect/templates/collect/detail.html:88
+#: collect/templates/collect/user_home.html:76
+msgid "Handmade"
+msgstr "ハンドメイド"
+
+#: collect/models.py:19 collect/templates/collect/base.html:148
+#: collect/templates/collect/base.html:232
+#: collect/templates/collect/detail.html:91
+#: collect/templates/collect/user_home.html:79
+msgid "Hobby/Toy"
+msgstr "おもちゃ/趣味"
+
+#: collect/models.py:20 collect/templates/collect/base.html:151
+#: collect/templates/collect/base.html:235
+#: collect/templates/collect/detail.html:94
+#: collect/templates/collect/user_home.html:82
+msgid "Clothes/Shoes/Bag"
+msgstr "衣服/靴/鞄"
+
+#: collect/models.py:21 collect/templates/collect/base.html:154
+#: collect/templates/collect/base.html:238
+#: collect/templates/collect/detail.html:97
+#: collect/templates/collect/user_home.html:85
+msgid "Car/Bike"
+msgstr "車/バイク"
+
+#: collect/models.py:22 collect/templates/collect/base.html:157
+#: collect/templates/collect/base.html:241
+#: collect/templates/collect/detail.html:100
+#: collect/templates/collect/user_home.html:88
+msgid "Sports/Outdoors"
+msgstr "スポーツ/アウトドア"
+
+#: collect/models.py:23 collect/templates/collect/base.html:100
+#: collect/templates/collect/base.html:203
+#: collect/templates/collect/detail.html:27
+#: collect/templates/collect/detail.html:62
+#: collect/templates/collect/detail.html:211
+#: collect/templates/collect/download.html:24
+#: collect/templates/collect/post.html:55
+#: collect/templates/collect/user_home.html:15
+#: collect/templates/collect/user_home.html:50
+msgid "Tag"
+msgstr "タグ"
+
+#: collect/models.py:29 collect/models.py:56
+msgid "category"
+msgstr "カテゴリー"
+
+#: collect/models.py:30 collect/models.py:38
+msgid "date of made"
+msgstr "作成日"
+
+#: collect/models.py:37 collect/models.py:57
+msgid "place"
+msgstr "場所"
+
+#: collect/models.py:46
+msgid "name"
+msgstr "名前"
+
+#: collect/models.py:47
+msgid "product name"
+msgstr "製品名"
+
+#: collect/models.py:48
+msgid "maker name"
+msgstr "メーカー"
+
+#: collect/models.py:49
+msgid "number"
+msgstr "個数"
+
+#: collect/models.py:50
+msgid "saved state"
+msgstr "保存状態"
+
+#: collect/models.py:51
+msgid "explain"
+msgstr "説明"
+
+#: collect/models.py:52
+msgid "day of acquisition"
+msgstr "入手日"
+
+#: collect/models.py:53
+msgid "place of acquisition"
+msgstr "入手場所"
+
+#: collect/models.py:54 collect/models.py:87 collect/models.py:93
+msgid "posted date"
+msgstr "投稿日"
+
+#: collect/models.py:58 collect/templates/collect/download.html:30
+#: collect/templates/collect/post.html:110
+msgid "Price"
+msgstr "価格"
+
+#: collect/models.py:59 collect/templates/collect/base.html:92
+#: collect/templates/collect/base.html:181
+#: collect/templates/collect/detail.html:258
+#: collect/templates/collect/detail.html:260
+#: collect/templates/collect/detail.html:263
+msgid "Nice"
+msgstr "いいね"
+
+#: collect/models.py:60 collect/templates/collect/detail.html:237
+msgid "public"
+msgstr "公開"
+
+#: collect/models.py:62
+msgid "Negotiable"
+msgstr "譲ってもいい"
+
+#: collect/models.py:63
+msgid "Non-negotiable"
+msgstr "譲れない"
+
+#: collect/models.py:64
+msgid "Looking for buyers"
+msgstr "売りたい"
+
+#: collect/models.py:65
+msgid "Thirsting"
+msgstr "欲しい"
+
+#: collect/models.py:66
+msgid "state"
+msgstr "状態"
+
+#: collect/models.py:80
+msgid "picture"
+msgstr "写真"
+
+#: collect/models.py:84 collect/models.py:90
+msgid "content"
+msgstr "本文"
+
+#: collect/models.py:98 collect/models.py:103
+msgid "date"
+msgstr "日時"
+
+#: collect/templates/collect/base.html:9
+msgid "Manage collection with us."
+msgstr "私たちとコレクション管理しよう"
+
+#: collect/templates/collect/base.html:58
+msgid "Login"
+msgstr "ログイン"
+
+#: collect/templates/collect/base.html:84
+#: collect/templates/collect/base.html:173
+#: collect/templates/collect/category.html:4
+#: collect/templates/collect/detail.html:201
+#: collect/templates/collect/download.html:23
+msgid "Category"
+msgstr "カテゴリー"
+
+#: collect/templates/collect/base.html:88
+#: collect/templates/collect/base.html:177
+#: collect/templates/collect/download.html:22
+#: collect/templates/collect/place.html:4
+msgid "Place"
+msgstr "場所"
+
+#: collect/templates/collect/base.html:96
+#: collect/templates/collect/base.html:185
+#: collect/templates/collect/detail.html:23
+#: collect/templates/collect/detail.html:44
+#: collect/templates/collect/detail.html:172
+#: collect/templates/collect/download.html:34
+#: collect/templates/collect/user_home.html:11
+#: collect/templates/collect/user_home.html:32
+msgid "State"
+msgstr "状態"
+
+#: collect/templates/collect/base.html:109
+#: collect/templates/collect/base.html:190
+#: collect/templates/collect/detail.html:49
+#: collect/templates/collect/user_home.html:37
+msgid "THIRSTY"
+msgstr "欲しい"
+
+#: collect/templates/collect/base.html:112
+#: collect/templates/collect/base.html:193
+#: collect/templates/collect/detail.html:52
+#: collect/templates/collect/user_home.html:40
+msgid "NON-NEGOTIABLE"
+msgstr "譲れない"
+
+#: collect/templates/collect/base.html:115
+#: collect/templates/collect/base.html:196
+#: collect/templates/collect/detail.html:55
+#: collect/templates/collect/user_home.html:43
+msgid "NEGOTIABLE"
+msgstr "譲ってもいい"
+
+#: collect/templates/collect/base.html:118
+#: collect/templates/collect/base.html:199
+#: collect/templates/collect/detail.html:58
+#: collect/templates/collect/user_home.html:46
+msgid "WANT-SELL"
+msgstr "売りたい"
+
+#: collect/templates/collect/base.html:169
+#: collect/templates/collect/detail.html:19
+#: collect/templates/collect/detail.html:40
+#: collect/templates/collect/user_home.html:7
+#: collect/templates/collect/user_home.html:28
+msgid "Recent"
+msgstr "最新"
+
+#: collect/templates/collect/base.html:245
+#: collect/templates/collect/download.html:4
+#: collect/templates/collect/download.html:41
+msgid "Download"
+msgstr "ダウンロード"
+
+#: collect/templates/collect/category.html:113
+#: collect/templates/collect/place.html:113
+msgid "contents is not deleted"
+msgstr "中身は削除されません"
+
+#: collect/templates/collect/category.html:116
+#: collect/templates/collect/detail.html:296
+#: collect/templates/collect/place.html:116
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: collect/templates/collect/category.html:117
+#: collect/templates/collect/detail.html:287
+#: collect/templates/collect/detail.html:297
+#: collect/templates/collect/place.html:117
+msgid "Delete"
+msgstr "削除"
+
+#: collect/templates/collect/category.html:124
+msgid "No category"
+msgstr "未指定"
+
+#: collect/templates/collect/category.html:207
+#: collect/templates/collect/place.html:207
+#: collect/templates/collect/post.html:43
+msgid "Add"
+msgstr "追加"
+
+#: collect/templates/collect/detail.html:31
+#: collect/templates/collect/detail.html:104
+#: collect/templates/collect/user_home.html:19
+#: collect/templates/collect/user_home.html:92
+msgid "Home"
+msgstr "ホーム"
+
+#: collect/templates/collect/detail.html:132
+#: collect/templates/collect/download.html:15
+msgid "Product name"
+msgstr "製品名"
+
+#: collect/templates/collect/detail.html:143
+#: collect/templates/collect/search.html:18
+#: collect/templates/collect/search_form.html:11
+msgid "Maker"
+msgstr "メーカー"
+
+#: collect/templates/collect/detail.html:153
+#: collect/templates/collect/download.html:20
+msgid "Number"
+msgstr "個数"
+
+#: collect/templates/collect/detail.html:163
+#: collect/templates/collect/download.html:21
+msgid "Saved state"
+msgstr "保存状態"
+
+#: collect/templates/collect/detail.html:181
+msgid "When acquisition"
+msgstr "入手日"
+
+#: collect/templates/collect/detail.html:191
+msgid "Where acquisition"
+msgstr "入手場所"
+
+#: collect/templates/collect/detail.html:224
+msgid "Saved place"
+msgstr "保存場所"
+
+#: collect/templates/collect/detail.html:233
+#: collect/templates/collect/download.html:35
+msgid "Public"
+msgstr "公開"
+
+#: collect/templates/collect/detail.html:239
+msgid "secret"
+msgstr "非公開"
+
+#: collect/templates/collect/detail.html:248
+#: collect/templates/collect/post.html:80
+msgid "Additional"
+msgstr "追加情報"
+
+#: collect/templates/collect/detail.html:283
+msgid "Edit"
+msgstr "編集"
+
+#: collect/templates/collect/detail.html:302
+msgid "Owner"
+msgstr "持ち主"
+
+#: collect/templates/collect/detail.html:311
+msgid "Comments"
+msgstr "コメント"
+
+#: collect/templates/collect/detail.html:327
+msgid "reply"
+msgstr "返信"
+
+#: collect/templates/collect/detail.html:348
+msgid "Submit"
+msgstr "送信"
+
+#: collect/templates/collect/detail.html:362
+msgid "Add comments"
+msgstr "コメントする"
+
+#: collect/templates/collect/detail.html:368
+msgid "Offers"
+msgstr "オファー"
+
+#: collect/templates/collect/detail.html:490
+msgid "Offering"
+msgstr "オファーする"
+
+#: collect/templates/collect/detail.html:495
+msgid "Offer your collection"
+msgstr "コレクションをオファー"
+
+#: collect/templates/collect/detail.html:558
+msgid "Offer"
+msgstr "オファー"
+
+#: collect/templates/collect/download.html:8
+msgid "Download your collection as CSV"
+msgstr "CSVダウンロード"
+
+#: collect/templates/collect/download.html:9
+msgid "Choose fields.  (Default is all)"
+msgstr "フィールドの選択(デフォルト全て)"
+
+#: collect/templates/collect/download.html:13
+msgid "Names"
+msgstr "名前属性"
+
+#: collect/templates/collect/download.html:14
+#: collect/templates/collect/post.html:11
+#: collect/templates/collect/search.html:16
+#: collect/templates/collect/search_form.html:9
+msgid "Name"
+msgstr "名前"
+
+#: collect/templates/collect/download.html:16
+msgid "Maker name"
+msgstr "メーカー"
+
+#: collect/templates/collect/download.html:19
+msgid "Information"
+msgstr "情報"
+
+#: collect/templates/collect/download.html:27
+#: collect/templates/collect/post.html:98
+msgid "Acquisition"
+msgstr "入手情報"
+
+#: collect/templates/collect/download.html:28
+msgid "Acquisition day"
+msgstr "入手日"
+
+#: collect/templates/collect/download.html:29
+msgid "Acquisition place"
+msgstr "入手場所"
+
+#: collect/templates/collect/download.html:33
+msgid "On this site"
+msgstr "サイト内情報"
+
+#: collect/templates/collect/download.html:36
+msgid "Explain"
+msgstr "説明"
+
+#: collect/templates/collect/download.html:39
+msgid "File name"
+msgstr "ファイル名"
+
+#: collect/templates/collect/download.html:39
+msgid "If you want."
+msgstr "任意"
+
+#: collect/templates/collect/nice.html:4 collect/views.py:534
+msgid "Nice list"
+msgstr "いいねリスト"
+
+#: collect/templates/collect/nice_users.html:72 collect/views.py:552
+msgid "Nice users"
+msgstr "いいねしたユーザー"
+
+#: collect/templates/collect/place.html:35
+msgid "Change"
+msgstr "変更"
+
+#: collect/templates/collect/place.html:124
+msgid "No place"
+msgstr "未指定"
+
+#: collect/templates/collect/post.html:38
+msgid "Only you can see"
+msgstr "あなた以外は見れません"
+
+#: collect/templates/collect/post.html:55
+msgid "At most 3"
+msgstr "最大3"
+
+#: collect/templates/collect/post.html:102
+msgid "Day of acquisition"
+msgstr "入手日"
+
+#: collect/templates/collect/search.html:15
+#: collect/templates/collect/search_form.html:8
+msgid "All"
+msgstr "全て"
+
+#: collect/templates/collect/search.html:17
+#: collect/templates/collect/search_form.html:10
+msgid "Product"
+msgstr "製品名"
+
+#: collect/templates/collect/search.html:21
+#: collect/templates/collect/search_form.html:14
+msgid "Search"
+msgstr "検索"
+
+#: collect/templates/collect/search.html:96
+msgid "first"
+msgstr "最初"
+
+#: collect/templates/collect/search.html:97
+msgid "previous"
+msgstr "前へ"
+
+#: collect/templates/collect/search.html:103
+msgid "next"
+msgstr "次へ"
+
+#: collect/templates/collect/search.html:104
+msgid "last"
+msgstr "最後"
+
+#: collect/templates/collect/the_home.html:82
+msgid "Download csv"
+msgstr "CSVダウンロード"
+
+#: collect/templates/collect/user_home.html:106
+msgid "'s collection"
+msgstr "のコレクション"
+
+#: collect/views.py:52
+msgid "Create"
+msgstr "作成"
+
+#: collect/views.py:53
+msgid "Create a new collection"
+msgstr "コレクションの作成"
+
+#: collect/views.py:90
+msgid "Update"
+msgstr "編集"
+
+#: collect/views.py:91
+msgid "Update collection"
+msgstr "コレクションの編集"
+
+#: collect/views.py:117
+msgid "Your collection"
+msgstr "あなたのコレクション"
+
+#: collect/views.py:119
+msgid "Newest 50"
+msgstr "最新50"
+
+#: collect/views.py:141
+msgid "Collection"
+msgstr "コレクション"
+
+#: collect/views.py:160
+msgid "Your wish list"
+msgstr "あなたの欲しいリスト"
+
+#: collect/views.py:185
+msgid "Wish List"
+msgstr "欲しいリスト"
+
+#: collect/views.py:296
+msgid "Categories"
+msgstr "カテゴリー"
+
+#: collect/views.py:314
+msgid "'s categories"
+msgstr "未指定"
+
+#: collect/views.py:338
+msgid "Places"
+msgstr "場所"
+
+#: collect/views.py:477
+msgid "Search result - \"{}\""
+msgstr ""
+
+#~ msgid "tag"
+#~ msgstr "タグ"

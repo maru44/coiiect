@@ -1,0 +1,18 @@
+{% load i18n %}
+<section>
+    <div class="columnArea">
+      <div class="searchArea mb15">
+        <form role="search" action="{% url 'search' %}" class="flex-normal">
+          {% csrf_token %}
+          <select name="selection">
+            <option value="all">{% trans "All" %}</option>
+            <option value="name">{% trans "Name" %}</option>
+            <option value="product">{% trans "Product" %}</option>
+            <option value="maker">{% trans "Maker" %}</option>
+          </select>
+          <input name="search" type="text" class="flex1 mr10 ml10">
+          <button type="submit" class="pl5 pr5 submitB">{% trans "Search" %}</button>
+        </form>
+      </div>
+    </div>
+</section>

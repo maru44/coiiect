@@ -1,0 +1,51 @@
+{% extends 'collect/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans "Download" %}{% endblock %}
+{% block content %}
+<div class="columnArea">
+  <div class="per60">
+    <h3 class="">{% trans "Download your collection as CSV" %}</h3>
+    <p class="ml15 mt5">{% trans "Choose fields.  (Default is all)" %}</p>
+    <form action="{% url 'download' %}" method="POST">
+        {% csrf_token %}
+        <div class="names checks mt10">
+          <h4>{% trans "Names" %}</h4>
+          <input name="select_for_csv" type="checkbox" value=name checked="checked">{% trans "Name" %}
+          <input class="ml10" name="select_for_csv" type="checkbox" value="product_name" checked="checked">{% trans "Product name" %}
+          <input class="ml10" name="select_for_csv" type="checkbox" value="maker" checked="checked">{% trans "Maker name" %}
+        </div>
+        <div class="info checks mt10">
+          <h4>{% trans "Information" %}</h4>
+          <input name="select_for_csv" type="checkbox" value="num" checked="checked">{% trans "Number" %}
+          <input class="ml10" name="select_for_csv" type="checkbox" value="saved" checked="checked">{% trans "Saved state" %}
+          <input class="ml10" name="select_for_csv" type="checkbox" value="place" checked="checked">{% trans "Place" %}
+          <input class="ml10" name="select_for_csv" type="checkbox" value="category" checked="checked">{% trans "Category" %}
+          <input class="ml10" name="select_for_csv" type="checkbox" value="tag" checked="checked">{% trans "Tag" %}
+        </div>
+        <div class="acqCheck checks mt10">
+          <h4>{% trans "Acquisition" %}</h4>
+          <input name="select_for_csv" type="checkbox" value="acq_day" checked="checked">{% trans "Acquisition day" %}
+          <input class="ml10" name="select_for_csv" type="checkbox" value="acq_place" checked="checked">{% trans "Acquisition place" %}
+          <input class="ml10" name="select_for_csv" type="checkbox" value="price" checked="checked">{% trans "Price" %}
+        </div>
+        <div class="checks onthis mt10">
+          <h4>{% trans "On this site" %}</h4>
+          <input name="select_for_csv" type="checkbox" value="state" checked="checked">{% trans "State" %}
+          <input class="ml10" name="select_for_csv" type="checkbox" value="public" checked="checked">{% trans "Public" %}
+          <input class="ml10" name="select_for_csv" type="checkbox" value="explain" checked="checked">{% trans "Explain" %}
+        </div>
+      <div class="mt20 field">
+        <label>{% trans "File name" %}</label><span class="ml40 color_Blue">{% trans "If you want." %}</span><br>
+        <input type="text" name="file_name" placeholder="data.csv (default)">
+        <button class="mt5 submitFull pt10 pb10 w100" type="submit">{% trans "Download" %}</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+  $(".SC_dow").addClass("active");
+</script>
+{% endblock %}
